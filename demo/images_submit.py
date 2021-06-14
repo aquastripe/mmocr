@@ -3,13 +3,12 @@ from argparse import ArgumentParser
 from pathlib import Path
 
 import mmcv
-
 from mmdet.apis import init_detector
+from tqdm import tqdm
+
 from mmocr.apis.inference import model_inference
 from mmocr.datasets import build_dataset  # noqa: F401
 from mmocr.models import build_detector  # noqa: F401
-
-from tqdm import tqdm
 
 
 def chunks(lst, n):
