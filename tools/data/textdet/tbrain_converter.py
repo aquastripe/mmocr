@@ -97,6 +97,11 @@ def load_img_info(files):
     for gt_shape in gt_shapes:
         category_id = 1
         xy = gt_shape['points']
+        flat_xy = []
+        for sub_xy in xy:
+            for item in sub_xy:
+                flat_xy.append(item)
+
         coordinates = np.array(xy)
         polygon = Polygon(coordinates)
         iscrowd = 0
@@ -110,7 +115,7 @@ def load_img_info(files):
             category_id=category_id,
             bbox=bbox,
             area=area,
-            segmentation=[xy])
+            segmentation=[flat_xy])
         anno_info.append(anno)
     split_name = osp.basename(osp.dirname(img_file))
     img_info = dict(
