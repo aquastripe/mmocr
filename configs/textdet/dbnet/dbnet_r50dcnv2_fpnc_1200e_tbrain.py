@@ -96,5 +96,10 @@ data = dict(
         img_prefix=data_root + '/imgs',
         # select_first_k=100,
         pipeline=test_pipeline),
-  )
+    test=dict(
+        type=dataset_type,
+        img_prefix=data_root + '/imgs',
+        # select_first_k=100,
+        pipeline=test_pipeline),
+)
 evaluation = dict(interval=100, metric='hmean-iou')
